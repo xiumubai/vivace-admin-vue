@@ -24,8 +24,8 @@ pnpm run build:prod
 
 ## 接口文档
 
-apifox：https://5z6ejvyqg4.apifox.cn
+apifox：https://y3vpryby6w.apifox.cn/
 
-## 需求文档
+## 开源文档
 
-https://www.yuque.com/xiumubai/fe/brx37tvkkpytkyq2?singleDoc#
+https://www.yuque.com/xiumubai/open/aiieu4trfgsqqtea
