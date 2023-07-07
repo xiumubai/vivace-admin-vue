@@ -58,15 +58,6 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         },
       },
       {
-        name: 'Permission',
-        path: '/acl/permission',
-        component: () => import('@/views/acl/permission/index.vue'),
-        meta: {
-          title: '菜单管理',
-          icon: 'Menu',
-        },
-      },
-      {
         path: '/acl/button',
         component: () => import('@/views/acl/button/index.vue'),
         meta: {
