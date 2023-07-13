@@ -21,7 +21,41 @@ import { RouteRecordRaw } from 'vue-router'
 const Layout = () => import('@/layouts/index.vue')
 
 export const dynamicRoutes: RouteRecordRaw[] = [
-  // 权限管理 *此路由放在最后*
+  // 外部链接
+  {
+    path: '/link',
+    component: Layout,
+    redirect: '/link/github',
+    meta: {
+      title: '外部链接',
+      badge: 'Hot',
+      icon: 'Link',
+      noAuth: true,
+    },
+    children: [
+      {
+        path: '/link/github',
+        component: () => import('@/views/acl/user/index.vue'), // 外部链接的component随意写
+        meta: {
+          noAuth: true,
+          title: 'Github',
+          icon: 'Link',
+          isLink: 'https://github.com/xiumubai/vivace-admin-vue',
+        },
+      },
+      {
+        path: '/link/yuque',
+        component: () => import('@/views/acl/user/index.vue'),
+        meta: {
+          noAuth: true,
+          title: '开源文档',
+          icon: 'Link',
+          isLink: 'https://www.yuque.com/xiumubai/open',
+        },
+      },
+    ],
+  },
+  // 权限管理
   {
     name: 'Acl',
     path: '/acl',
@@ -70,6 +104,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+
   // 基础数据模块
   {
     path: '/list',
