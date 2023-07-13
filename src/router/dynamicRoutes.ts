@@ -140,4 +140,38 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  // 编辑器
+  {
+    name: 'Editor',
+    path: '/edit',
+    component: Layout,
+    redirect: '/edit/markdown',
+    meta: {
+      title: '编辑器',
+      icon: 'Edit',
+      noAuth: true,
+    },
+    children: [
+      {
+        name: 'Markdown',
+        path: '/edit/markdown',
+        component: () => import('@/views/editor/markdown/index.vue'),
+        meta: {
+          title: 'markdown',
+          icon: 'Document',
+          noAuth: true,
+        },
+      },
+      {
+        name: 'Wangeditor',
+        path: '/edit/wangeditor',
+        component: () => import('@/views/editor/wangeditor/index.vue'),
+        meta: {
+          title: '富文本',
+          icon: 'Notebook',
+          noAuth: true,
+        },
+      },
+    ],
+  },
 ]

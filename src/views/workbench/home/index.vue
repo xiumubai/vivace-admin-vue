@@ -46,7 +46,7 @@
                 type="primary"
                 placement="top"
               >
-                {{ item.content }}
+                <MdPreview :editorId="item.id" :modelValue="item.content" />
               </el-timeline-item>
             </el-timeline>
             <el-empty v-show="logList?.length === 0" />
@@ -92,6 +92,8 @@ import { timeFix, welcome } from '@/utils/index'
 import { logList } from './log'
 import { useRouter } from 'vue-router'
 import { OPTIONSLIST, INFOLIST } from '@/utils/constant'
+import { MdPreview } from 'md-editor-v3'
+import 'md-editor-v3/lib/preview.css'
 const router = useRouter()
 const userStore = useUserStore()
 const userInfo = userStore.userInfo
