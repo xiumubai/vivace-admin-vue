@@ -9,6 +9,15 @@
           <component :is="subItem.meta.icon"></component>
         </el-icon>
         <span>{{ subItem.meta.title }}</span>
+        <el-tag
+          v-if="subItem.meta && subItem.meta.badge"
+          class="dot-item"
+          effect="dark"
+          type="danger"
+          size="small"
+        >
+          {{ subItem.meta.badge }}
+        </el-tag>
       </template>
       <!-- 有children递归本次组件 -->
       <sub-menu :menuList="subItem.children" />
@@ -23,13 +32,16 @@
         <component :is="subItem.children[0].meta.icon"></component>
       </el-icon>
       <template #title>
-        <el-badge
-          is-dot
+        <span>{{ subItem.children[0].meta.title }}</span>
+        <el-tag
+          v-if="subItem.children[0].meta && subItem.children[0].meta.badge"
           class="dot-item"
-          :hidden="subItem.children[0].meta.isNew"
+          size="small"
+          effect="dark"
+          type="danger"
         >
-          <span>{{ subItem.children[0].meta.title }}</span>
-        </el-badge>
+          {{ subItem.children[0].meta.badge }}
+        </el-tag>
       </template>
     </el-menu-item>
     <el-menu-item
@@ -42,11 +54,15 @@
       </el-icon>
       <template #title>
         <span>{{ subItem.meta.title }}</span>
-        <el-badge
-          :hidden="!subItem.meta.isNew"
-          is-dot
+        <el-tag
+          v-if="subItem.meta && subItem.meta.badge"
           class="dot-item"
-        ></el-badge>
+          effect="dark"
+          type="danger"
+          size="small"
+        >
+          {{ subItem.meta.badge }}
+        </el-tag>
       </template>
     </el-menu-item>
   </template>
@@ -89,7 +105,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .dot-item {
-  display: flex;
-  align-items: center;
+  margin-left: 10px;
 }
 </style>

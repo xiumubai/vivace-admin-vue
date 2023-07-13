@@ -13,6 +13,8 @@
  * @param meta.isFull ==> 是否全屏(示例：数据大屏页面)
  * @param meta.isAffix ==> 是否固定在 tabs nav
  * @param meta.isKeepAlive ==> 是否缓存
+ * @param meta.badge ==> 徽标
+ * @param meta.noAuth ==> 路由是否添加权限
  * */
 import { RouteRecordRaw } from 'vue-router'
 
@@ -77,6 +79,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     meta: {
       title: '列表页面',
       icon: 'Menu',
+      badge: 'New',
     },
     children: [
       {
@@ -98,7 +101,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       {
         path: '/list/complex',
         component: () => import('@/views/list/complex/index.vue'),
-        meta: { title: '复杂列表', icon: 'Grid', noAuth: true, isNew: true },
+        meta: { title: '复杂列表', icon: 'Grid', noAuth: true, badge: 'New' },
       },
     ],
   },
