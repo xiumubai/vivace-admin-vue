@@ -55,7 +55,7 @@ export const staticRoutes: RouteRecordRaw[] = [
         name: 'Index',
         component: () => import('@/views/workbench/home/index.vue'),
         meta: {
-          title: '主页',
+          title: '工作台',
           icon: 'HomeFilled',
           affix: true,
         },

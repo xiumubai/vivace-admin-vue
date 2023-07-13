@@ -1,0 +1,97 @@
+.home {
+  height: 100%;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin: 0 -20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    .page-header-tip {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .page-header-tip-title {
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #3c4a54;
+    }
+
+    .page-header-tip-desc {
+      min-height: 20px;
+      font-size: 14px;
+      color: #808695;
+    }
+  }
+
+  .home-main {
+    display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    h3 {
+      margin: 0;
+    }
+    .main-left {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .main-right {
+      flex: 1;
+    }
+
+    .card-item {
+      border: none;
+    }
+
+    .project {
+      margin-bottom: 10px;
+    }
+
+    .option {
+      margin-bottom: 10px;
+    }
+
+    .log {
+      height: 347px;
+    }
+
+    .options-card {
+      display: flex;
+      flex-wrap: wrap;
+      .options-card-item {
+        margin: -1px;
+        width: 33.333333%;
+        cursor: pointer;
+      }
+    }
+
+    .options-item {
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #fff;
+  }
+}
+
+:deep(.el-timeline) {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+:deep(.el-timeline-item) {
+  margin: 6px 0 0 6px;
+}
