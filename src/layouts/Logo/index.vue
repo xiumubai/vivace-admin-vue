@@ -29,7 +29,7 @@ export default defineComponent({
   height: 60px;
   overflow: hidden;
   line-height: 60px;
-  background: transparent;
+  background: #0d0d0d;
 
   .title {
     display: inline-block;

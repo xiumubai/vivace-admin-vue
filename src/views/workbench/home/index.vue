@@ -1,18 +1,20 @@
 <template>
   <div class="home container">
-    <div class="page-header">
-      <el-avatar :size="60" :src="userInfo?.avatar" />
-      <div class="page-header-tip">
-        <p class="page-header-tip-title">
-          {{ timeFix() }}，{{ userInfo?.name }}，{{ welcome() }}
-        </p>
-        <p class="page-header-tip-desc">
-          添加白哥wx
-          <el-tag>xiumubai01</el-tag>
-          参与开源项目
-        </p>
+    <el-card shadow="hover" class="card-item header">
+      <div class="page-header">
+        <el-avatar :size="60" :src="userInfo?.avatar" />
+        <div class="page-header-tip">
+          <p class="page-header-tip-title">
+            {{ timeFix() }}，{{ userInfo?.name }}，{{ welcome() }}
+          </p>
+          <p class="page-header-tip-desc">
+            添加白哥wx
+            <el-tag>xiumubai01</el-tag>
+            参与开源项目
+          </p>
+        </div>
       </div>
-    </div>
+    </el-card>
     <div class="home-main">
       <div class="main-left">
         <el-card shadow="hover" class="card-item project">

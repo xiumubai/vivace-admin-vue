@@ -10,7 +10,8 @@
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="logout">
-          <svg-icon name="logout" size="16px" />
+          <!-- <svg-icon name="logout" size="16px" /> -->
+          <IconifyIcon icon="ri:logout-circle-r-line" height="14" />
           <span>退出登陆</span>
         </el-dropdown-item>
       </el-dropdown-menu>
@@ -25,6 +26,7 @@ import { useUserStore } from '@/store/modules/user'
 import { ArrowUp, ArrowDown } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { LOGIN_URL } from '@/config/config'
+
 export default defineComponent({
   components: {
     ArrowUp,
