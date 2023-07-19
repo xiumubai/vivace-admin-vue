@@ -71,7 +71,7 @@ const colorQrCode = () => {
   colorDark.value = `rgb(${r},${g},${b},1)`
 }
 
-const callbackQrCode = (url) => {
+const callbackQrCode = (url: string) => {
   downloadFileUrl.value = url
 }
 
@@ -82,8 +82,8 @@ const downloadQrCode = () => {
 
 <style lang="scss" scoped>
 .myqrcode {
-  opacity: 0;
   position: fixed;
   top: -100px;
+  opacity: 0;
 }
 </style>

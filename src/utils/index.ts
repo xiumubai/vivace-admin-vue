@@ -72,22 +72,22 @@ export function generateUUID() {
  * @params url 文件url
  * @ddescription 下载base64格式文件到本地
  */
-export function downloadBase64file(base64:any,fileName:string = '文件'){
-  const arr = base64.split(","),
-  mime = arr[0].match(/:(.*?);/)[1],
-  bstr = window.atob(arr[1]),
-  n = bstr.length,
-  u8arr = new Uint8Array(n);
+export function downloadBase64file(base64: any, fileName = '文件') {
+  const arr = base64.split(',')
+  const mime = arr[0].match(/:(.*?);/)[1]
+  const bstr = window.atob(arr[1])
+  const u8arr = new Uint8Array(n)
+  const n = bstr.length
   while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
+    u8arr[n] = bstr.charCodeAt(n)
   }
-  const bolb =  new Blob([u8arr], { type: mime });
-  const url = URL.createObjectURL(bolb);
-  const link = document.createElement('a') 
+  const bolb = new Blob([u8arr], { type: mime })
+  const url = URL.createObjectURL(bolb)
+  const link = document.createElement('a')
   link.style.display = 'none'
-  link.setAttribute("href", url);
-  link.setAttribute("download", fileName);
-  link.setAttribute("target", "_blank");
+  link.setAttribute('href', url)
+  link.setAttribute('download', fileName)
+  link.setAttribute('target', '_blank')
   document.body.appendChild(link)
   link.click()
   URL.revokeObjectURL(link.href)
