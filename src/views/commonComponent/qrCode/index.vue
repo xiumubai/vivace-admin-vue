@@ -45,12 +45,12 @@ const bgImg =
 const logoImg =
   'https://images.unsplash.com/photo-1689170649735-a8c259851e2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4Mnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60'
 
-const inputValue = ref('https://baidu.com')
-const bgSrc = ref('')
-const logoSrc = ref('')
-const colorDark = ref('rgba(0,0,0,1)')
-const downloadFileUrl = ref('')
-const qrCodeSize = ref(200)
+const inputValue = ref<string>('https://baidu.com')
+const bgSrc = ref<string>('')
+const logoSrc = ref<string>('')
+const colorDark = ref<string>('rgba(0,0,0,1)')
+const downloadFileUrl = ref<string>('')
+const qrCodeSize = ref<number>(200)
 
 const defaultQrCode = () => {
   bgSrc.value = ''

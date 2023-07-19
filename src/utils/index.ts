@@ -73,7 +73,7 @@ export function generateUUID() {
  * @ddescription 下载base64格式文件到本地
  */
 export function downloadBase64file(base64:any,fileName:string = '文件'){
-  var arr = base64.split(","),
+  const arr = base64.split(","),
   mime = arr[0].match(/:(.*?);/)[1],
   bstr = window.atob(arr[1]),
   n = bstr.length,
@@ -82,7 +82,7 @@ export function downloadBase64file(base64:any,fileName:string = '文件'){
     u8arr[n] = bstr.charCodeAt(n);
   }
   const bolb =  new Blob([u8arr], { type: mime });
-  var url = URL.createObjectURL(bolb);
+  const url = URL.createObjectURL(bolb);
   const link = document.createElement('a') 
   link.style.display = 'none'
   link.setAttribute("href", url);
@@ -93,9 +93,3 @@ export function downloadBase64file(base64:any,fileName:string = '文件'){
   URL.revokeObjectURL(link.href)
   document.body.removeChild(link)
 }
-
-  //将base64转换为blob
-  function dataURLtoBlob(dataurl) {
-    
-    return 
-  }
