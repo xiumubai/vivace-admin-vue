@@ -67,3 +67,35 @@ export function generateUUID() {
     return (c === 'x' ? random : (random & 0x3) | 0x8).toString(16)
   })
 }
+
+/**
+ * @params url 文件url
+ * @ddescription 下载base64格式文件到本地
+ */
+export function downloadBase64file(base64:any,fileName:string = '文件'){
+  var arr = base64.split(","),
+  mime = arr[0].match(/:(.*?);/)[1],
+  bstr = window.atob(arr[1]),
+  n = bstr.length,
+  u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  const bolb =  new Blob([u8arr], { type: mime });
+  var url = URL.createObjectURL(bolb);
+  const link = document.createElement('a') 
+  link.style.display = 'none'
+  link.setAttribute("href", url);
+  link.setAttribute("download", fileName);
+  link.setAttribute("target", "_blank");
+  document.body.appendChild(link)
+  link.click()
+  URL.revokeObjectURL(link.href)
+  document.body.removeChild(link)
+}
+
+  //将base64转换为blob
+  function dataURLtoBlob(dataurl) {
+    
+    return 
+  }
