@@ -40,9 +40,9 @@
             <h3>更新动态</h3>
           </template>
           <el-scrollbar height="324px">
-            <el-timeline v-show="logList?.length > 0">
+            <el-timeline v-show="list?.length > 0">
               <el-timeline-item
-                v-for="(item, index) in logList"
+                v-for="(item, index) in list"
                 :key="index"
                 :timestamp="item.timestamp"
                 type="primary"
@@ -51,7 +51,7 @@
                 <MdPreview :editorId="item.id" :modelValue="item.content" />
               </el-timeline-item>
             </el-timeline>
-            <el-empty v-show="logList?.length === 0" />
+            <el-empty v-show="list?.length === 0" />
           </el-scrollbar>
         </el-card>
       </div>
@@ -88,10 +88,11 @@
 </template>
 
 <script setup lang="tsx">
+import dayjs from 'dayjs'
+import { Octokit } from 'octokit'
+import { onMounted, ref } from 'vue'
 import { useUserStore } from '@/store/modules/user'
 import { timeFix, welcome } from '@/utils/index'
-// 更新日志可以从github的realses中动态获取，然后使用md格式进行展示
-import { logList } from './log'
 import { useRouter } from 'vue-router'
 import { OPTIONSLIST, INFOLIST } from '@/utils/constant'
 import { MdPreview } from 'md-editor-v3'
@@ -99,12 +100,29 @@ import 'md-editor-v3/lib/preview.css'
 const router = useRouter()
 const userStore = useUserStore()
 const userInfo = userStore.userInfo
+
+const list = ref()
 /** 快捷操作跳转 */
 const handleView = (url: string) => {
   router.push({
     path: url,
   })
 }
+
+onMounted(async () => {
+  const octokit = new Octokit({
+    auth: `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`,
+  })
+  const result = await octokit.request(
+    'GET /repos/xiumubai/vivace-admin-vue/releases',
+  )
+  list.value = result.data.map((v: any) => {
+    return {
+      content: v.body,
+      timestamp: dayjs(v.published_at).format('YYYY/MM/DD hh:mm:ss A'),
+    }
+  })
+})
 </script>
 
 <style scoped lang="scss">
