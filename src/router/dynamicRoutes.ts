@@ -140,15 +140,15 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       },
     ],
   },
-  // 编辑器
+  // 常用组件模块
   {
-    name: 'Editor',
-    path: '/edit',
+    name:'commonComponent',
+    path:'/commonComponent',
     component: Layout,
     redirect: '/edit/markdown',
-    meta: {
-      title: '编辑器',
-      icon: 'Edit',
+    meta:{
+      title: '常用组件',
+      icon: 'Grid',
       noAuth: true,
     },
     children: [
@@ -172,6 +172,17 @@ export const dynamicRoutes: RouteRecordRaw[] = [
           noAuth: true,
         },
       },
+      {
+        name: 'qrCode',
+        path: '/edit/qrCode',
+        component: () => import('@/views/commonComponent/qrCode/index.vue'),
+        meta: {
+          title: '二维码生成',
+          icon: 'Picture',
+          noAuth: true,
+        },
+      },
     ],
+
   },
 ]
