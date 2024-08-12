@@ -185,4 +185,59 @@ export const dynamicRoutes: RouteRecordRaw[] = [
     ],
 
   },
+  // 菜单嵌套
+  {
+    name: 'Nesting',
+    path: '/nesting',
+    component: Layout,
+    redirect: '/nesting/one',
+    meta: {
+      title: '菜单嵌套',
+      icon: 'Menu',
+      noAuth: true,
+    },
+    children: [
+      {
+        name: 'One',
+        path: '/nesting/one',
+        meta: {
+          title: '菜单1',
+          icon: 'Document',
+          noAuth: true,
+        },
+        children: [
+          {
+            name: 'One-One',
+            path: '/nesting/one-one',
+            component: () => import('@/views/nesting/three/index.vue'),
+            meta: {
+              title: '菜单1-1',
+              icon: 'Document',
+              noAuth: true,
+            },
+          },
+          {
+            name: 'One-Two',
+            path: '/nesting/one-two',
+            component: () => import('@/views/nesting/four/index.vue'),
+            meta: {
+              title: '菜单1-2',
+              icon: 'Document',
+              noAuth: true,
+            },
+          },
+        ],
+      },
+      {
+        name: 'Two',
+        path: '/nesting/two',
+        component: () => import('@/views/nesting/two/index.vue'),
+        meta: {
+          title: '菜单2',
+          icon: 'Document',
+          noAuth: true,
+        },
+      },
+    ],
+  },
 ]
